@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+  "name": "BlueGuard",
+  "version": "0.1.0",
+
+  "description": "BlueGuard helps keep your computer safe from bad actors online.",
+  "icons": {
+    "16": "icons/logo_16.png",
+    "32": "icons/logo_32.png",
+    "48": "icons/logo_48.png",
+    "128": "icons/logo_128.png"
+  },
+
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+
+  "permissions": [
+    "<all_urls>",
+    "declarativeContent",
+    "debugger"
+  ],
+
+  "browser_action": {
+    "default_icon": {
+      "16": "icons/logo_16.png",
+      "24": "icons/logo_24.png",
+      "32": "icons/logo_32.png"
+    },
+    "default_title": "BlueGuard",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html"
+}
