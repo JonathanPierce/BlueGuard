@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WARNING - DANGEROUS WEBSITE</title>
+    <style type='text/css'>
+      html, body {
+        width: 100%;
+        height: 100%;
+      }
+
+      body {
+        background-color: #e2e2e2;
+      }
+
+      .danger-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+
+      .danger-main {
+        color: red;
+        font-size: 80pt;
+        margin-bottom: 12px;
+        text-shadow: rgba(50,50,50,0.7) 0px 0px 10px;
+      }
+
+      .danger-blurb {
+        font-size: 14pt;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      .danger-escape {
+        border-radius: 4px;
+        padding: 12px 20px;
+        font-size: 12pt;
+        color: white;
+        background-color: rgb(14, 78, 199);
+        text-decoration: none;
+        margin-top: 24px;
+        box-shadow: rgba(50,50,50,0.7) 0px 0px 10px;
+      }
+
+      .danger-escape:hover {
+        box-shadow: rgb(50,50,50) 0px 0px 15px;
+        background: rgb(35, 111, 255);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="danger-wrapper">
+      <div class="danger-main">
+        DANGER!
+      </div>
+      <div class="danger-blurb">
+        This website is confirmed to be dangerous and has been blocked for your protection.
+      </div>
+      <a href="https://google.com" class="danger-escape">Get me out of here!</a>
+    </div>
+  </body>
+</html>

@@ -53,3 +53,9 @@ In this way, the target just needs to login to the social network as normal. Onc
 ## Can I install this remotely?
 
 No, you will actually need to visit your mom and install it on her computer yourself. Go visit your mom!
+
+# Build and Run
+
+1. `npm install`
+2. `sh build.sh`
+3. import the `build` folder as an extension into Chrome

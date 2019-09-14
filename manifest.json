@@ -18,6 +18,7 @@
 
   "permissions": [
     "<all_urls>",
+    "tabs",
     "declarativeContent",
     "debugger"
   ],
@@ -29,7 +30,11 @@
       "32": "icons/logo_32.png"
     },
     "default_title": "BlueGuard",
-    "default_popup": "popup.html"
+    "default_popup": "static/popup.html"
   },
-  "options_page": "options.html"
+  "options_page": "static/options.html",
+
+  "web_accessible_resources": [
+    "static/danger.html"
+  ]
 }
