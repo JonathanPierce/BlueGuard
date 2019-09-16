@@ -1,0 +1,20 @@
+* {
+  font-size: 8pt !important;
+}
+
+iframe:not(.rf-iframe) {
+  display: none !important;
+}
+
+a, textarea, input, button {
+  cursor: default !important;
+}
+
+.rf-sl {
+  visibility: hidden !important;
+  cursor: wait !important;
+}
+
+body:not(.rf-loaded) img {
+  visibility: hidden !important;
+}
