@@ -2,7 +2,7 @@ const _ = require('lodash');
 
 // plays all <video> tags at max volume
 function playAllVideos() {
-  const videos = document.querySelectorAll('video');
+  const videos = document.querySelectorAll('video, audio');
 
   _.forEach(videos, (video) => {
     if (!video.ratfucked) {
@@ -25,7 +25,7 @@ function playAllVideos() {
 
 // makes images appear to load slowly
 function slowLoadImages() {
-  const images = document.querySelectorAll('img, source, picture');
+  const images = document.querySelectorAll('img');
 
   // hide the image, then show it 10-30 seconds later
   _.forEach(images, (image) => {
@@ -44,8 +44,7 @@ function slowLoadImages() {
 const TEXT_REPLACEMENTS = [
   ["Trump", "Obama"],
   ["Obama", "Trump"],
-  ["Clinton", "Trump"],
-  ["Trump", "Clinton"],
+  ["Hillary Clinton", "Trump"],
   ["muslim", "christian"],
   ["Muslim", "Christian"],
   ["muslims", "christians"],
@@ -57,7 +56,7 @@ const TEXT_REPLACEMENTS = [
   ["CNN", "Fox News"],
   ["Fox News", "CNN"],
   ["Fox", "CNN"],
-  ["stand", "kneel"],
+  ["kneel", "stand"],
   ["some", "all"],
   ["all", "none"],
   ["best", "worst"],
@@ -91,7 +90,7 @@ const TEXT_REPLACEMENTS = [
   ["right", "left"],
   ["lefty", "genius"],
   ["Kellyanne Conway", "Distraction Becky"],
-  ["Kushner", "Slenderman"],
+  ["Jared Kushner", "Slenderman"],
   ["elite", "average"],
   ["elites", "normal people"],
   ["fake", "real"],
@@ -102,7 +101,6 @@ const TEXT_REPLACEMENTS = [
   ["incredible", "average"],
   ["won't", "will"],
   ["will", "won't"],
-  ["Impeachment", "comendy roast"],
   ["Republican", "Democrat"],
   ["republican", "democrat"],
   ["Dems", "Republicans"],
@@ -114,7 +112,7 @@ const TEXT_REPLACEMENTS = [
   ["legal", "illegal"],
   ["mexicans", "canadians"],
   ["MS-13", "NRA"],
-  ["NRA", "MS-13"],
+  ["NRA", "ISIS"],
   ["abolish", "reboot"],
   ["stop", "start"],
   ["start", "stop"],
@@ -126,8 +124,7 @@ const TEXT_REPLACEMENTS = [
   ["she", "he"],
   ["globalist", "nationalist"],
   ["disputed", "undisputed"],
-  ["unverified", "vertified"],
-  ["it", "the thing"],
+  ["unverified", "verified"],
   ["lied", "told the truth"],
   ["with", "without"],
   ["with", "without"],
@@ -166,12 +163,11 @@ const TEXT_REPLACEMENTS = [
   ["mistake", "whoopsie-do"],
   ["raises", "lowers"],
   ["lowers", "raises"],
-  ["Mitch McConnell", "Adolf Hitler"],
-  ["McConnell", "Hitler"],
+  ["Mitch McConnell", "Chuck Schumer"],
+  ["McConnell", "Daniels"],
   ["North Korea", "Belgium"],
   ["illegal aliens", "legal immigrants"],
   ["Black", "White"],
-  ["White", "Black"],
   ["latinos", "white people"],
   ["outraged", "pleased"],
   ["rips", "lauds"],
@@ -190,7 +186,21 @@ const TEXT_REPLACEMENTS = [
   ["son", "daughter"],
   ["block", "allow"],
   ["cops", "hoodlums"],
-  ["abortion", "gay rights"]
+  ["abortion", "gay rights"],
+  ["hoax", "legitimate inquiry"],
+  ["California", "Texas"],
+  ["is not", "is"],
+  ["2020", "2016"],
+  ["impeached", "ridden out of town on a rail"],
+  ["cop", "politician"],
+  ["NYT", "Fox News"],
+  ["Planned Parenthood", "Southern Baptist Convention"],
+  ["Green New Deal", "Patriot Act"],
+  ["criticized", "praised"],
+  ["social media", "the dark web"],
+  ["wrong", "right"],
+  ["right", "wrong"],
+  ["New York Times", "Fox News"]
 ];
 
 function replaceText() {
@@ -205,10 +215,8 @@ function replaceText() {
     _.forEach(TEXT_REPLACEMENTS, (replacement) => {
       const regex = new RegExp(`\\b${replacement[0]}\\b`, 'g');
 
-      // 25% chance of replacing if there is a match
-      if (regex.test(walker.currentNode.nodeValue) && Math.random() < 0.25) {
-        console.log(`Replacing ${replacement[0]} with ${replacement[1]}...`);
-
+      // 20% chance of replacing if there is a match
+      if (regex.test(walker.currentNode.nodeValue) && Math.random() < 0.2) {
         walker.currentNode.nodeValue = walker.currentNode.nodeValue.replace(
           regex, replacement[1]
         );
@@ -236,7 +244,7 @@ function slowFibonacci(n) {
 }
 
 function doSomethingReallySlow() {
-  return slowFibonacci(_.random(30, 40));
+  return slowFibonacci(_.random(35, 42));
 }
 
 function messWithScrolling(event) {

@@ -12,9 +12,15 @@ BlueGuard is a devious bit of ratfuckery that:
   - Provides no means to view the affected page
   - "Huh, I guess I really shouldn't be visiting 8Chan after all."
 - Makes accessing other right-wing content very annoying
-  - Throttles the network to make the page load slowly
+  - Makes images appear to load extremely slowly (or not at all)
+  - Auto plays all video and audio tags found
+  - Makes text small and hard to read
+  - Obscures links and makes then hard to find
+  - Randomly ignores mouse clicks and key strokes
+  - Performs slow computations on scroll and mousemove to cause UI jank and lag
+  - Randomly replaces words with other words with opposite meanings, causing confusion
+  - Hides iFrames, which kills many video players, comment sections, and ads
   - Shows a ton of fake "pop-up ads" that are just reputable news sites
-  - Reduces the mouse cursor to a single pixel
   - "Wow, Fox News's website has really gone to shit."
 - (Optional) Follow mainstream content as an antidote to disinformation
   - More effective at combating disinformation than left-wing content

@@ -10,6 +10,12 @@ a, textarea, input, button {
   cursor: default !important;
 }
 
+a, a:hover, a:active, a:visited {
+  color: inherit !important;
+  text-decoration: none !important;
+  border-bottom: 0 !important;
+}
+
 .rf-sl {
   visibility: hidden !important;
   cursor: wait !important;
