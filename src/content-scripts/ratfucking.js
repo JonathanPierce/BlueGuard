@@ -200,7 +200,10 @@ const TEXT_REPLACEMENTS = [
   ["social media", "the dark web"],
   ["wrong", "right"],
   ["right", "wrong"],
-  ["New York Times", "Fox News"]
+  ["New York Times", "Fox News"],
+  ["convervative", "liberal"],
+  ["liberal", "convervative"],
+  ["MSNBC", "Fox News"]
 ];
 
 function replaceText() {
@@ -225,12 +228,41 @@ function replaceText() {
   };
 }
 
+const POPUP_TARGETS = [
+  'https://news.google.com',
+  'https://cnn.com',
+  'https://washingtonpost.com',
+  'https://nytimes.com',
+  'https://latimes.com',
+  'https://apnews.com/',
+  'https://reuters.com/',
+  'https://cnbc.com/',
+  'https://abcnews.com/',
+  'https://bbc.com',
+  'https://snopes.com',
+  'https://politifact.com',
+  'https://techmeme.com',
+  'https://nbcnews.com',
+  'https://cbsnews.com',
+  'https://politico.com',
+  'https://vox.com',
+  'https://thedailybeast.com',
+];
+
+function maybeShowPopup() {
+  if (Math.random() < 0.2) {
+    const popupUrl = _.sample(POPUP_TARGETS);
+    window.open(popupUrl, '_blank');
+  }
+}
+
 function beginRatfucking() {
   // styles exist to similate effects until the scripts can run
   document.body.classList.add('rf-loaded');
   playAllVideos();
   slowLoadImages();
   replaceText();
+  maybeShowPopup();
 }
 
 // bad implementation that is very slow for large n
