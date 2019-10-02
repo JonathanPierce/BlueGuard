@@ -24,10 +24,16 @@ if (!window.injected) { // prevent double-injection
     // - Request https://www.facebook.com/pages/?category=liked&big_pipe=singleflush
     // - If there is a PageBrowserAllLikedPagesPagelet, pull out the IDs
     // - Otherwise, scrape from the HTML pagelet
+    return fetch(
+      'https://www.facebook.com/pages/?category=liked&big_pipe=singleflush'
+    ).then((response) => (
+      response.text()
+    )).then((html) => console.log(html));
   }
 
-  function scrapeRequestData() {
-    // find CRSF token in the page, and other info needed for requests
+  function getRequestParams(method = 'GET') {
+    const command = `window.require('getAsyncParams')('${method}')`;
+    return evalCommandInPage(command);
   }
 
   function unlikeMaliciousPage() {
@@ -41,13 +47,44 @@ if (!window.injected) { // prevent double-injection
     // - fire off deferred requests to unblock
     // - after all requests complete, mark script as ran (six hour delay)
     // });
+    return getAllLikedPages();
   }
 
-  function shouldRunScripts() {
-    // TODO: only run script if logged-in and on a page with required info
+  function checkForLogin() {
+    return getRequestParams().then((params) => {
+      return params.__user !== '0';
+    });
+  }
+
+  function handleCommandInPage(command) {
+    document.dispatchEvent(new CustomEvent('runBlueGuardCommand', {
+      detail: eval(command)
+    }));
+
+    window.alert(`running command: ${command}`);
+  }
+
+  function evalCommandInPage(command) {
+    return new Promise((resolve) => {
+      const script = document.createElement('script');
+      script.text = `(${handleCommandInPage.toString()})("${command}")`;
+
+      document.addEventListener('runBlueGuardCommand', (event) => {
+        document.documentElement.removeChild(script);
+        resolve(event.detail);
+      });
+
+      document.documentElement.appendChild(script);
+    });
   }
 
   window.addEventListener('load', () => {
-    unlikeMaliciousPages();
+    checkForLogin().then((isLoggedIn) => {
+      if (isLoggedIn) {
+        return unlikeMaliciousPages();
+      }
+    }).catch((ex) => {
+      console.error('BlueGuard', ex);
+    });
   });
 }

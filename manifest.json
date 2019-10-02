@@ -20,7 +20,7 @@
     "<all_urls>",
     "tabs",
     "declarativeContent",
-    "debugger"
+    "storage"
   ],
 
   "browser_action": {

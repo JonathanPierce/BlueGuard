@@ -2,7 +2,7 @@
   font-size: 8pt !important;
 }
 
-iframe, .rc-row, .trc_related_container, .trc_spotlight_widget {
+iframe, video, audio, .rc-row, .trc_related_container, .trc_spotlight_widget {
   display: none !important;
 }
 
