@@ -1,28 +1,5 @@
 const _ = require('lodash');
 
-// plays all <video> tags at max volume
-function playAllVideos() {
-  const videos = document.querySelectorAll('video, audio');
-
-  _.forEach(videos, (video) => {
-    if (!video.ratfucked) {
-      // hide the controls
-      video.controls = false;
-      video.volume = 1;
-      video.ratfucked = true;
-
-      if (video.muted) {
-        video.muted = false;
-      }
-
-      // play the video
-      if (video.paused) {
-        video.play();
-      }
-    }
-  })
-}
-
 // makes images appear to load slowly
 function slowLoadImages() {
   const images = document.querySelectorAll('img');
@@ -259,7 +236,6 @@ function maybeShowPopup() {
 function beginRatfucking() {
   // styles exist to similate effects until the scripts can run
   document.body.classList.add('rf-loaded');
-  playAllVideos();
   slowLoadImages();
   replaceText();
   maybeShowPopup();
@@ -281,7 +257,6 @@ function doSomethingReallySlow() {
 
 function messWithScrolling(event) {
   slowLoadImages();
-  playAllVideos();
 
   // causes UI jank and lag
   doSomethingReallySlow();
@@ -308,8 +283,8 @@ function messWithKeyDown(event) {
   }
 }
 
-if (!window.ratfucked) {
-  window.ratfucked = true; // prevent double injection
+if (!window.mangled) {
+  window.mangled = true; // prevent double injection
 
   window.addEventListener('load', beginRatfucking);
   window.addEventListener('popstate', beginRatfucking);

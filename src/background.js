@@ -27,13 +27,13 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
       });
     } else if (isUrlSuboptimal(tab.url)) {
       chrome.tabs.executeScript(tabId, {
-        file: 'content-scripts/ratfucking.js',
+        file: 'content-scripts/kneecap.js',
         runAt: 'document_start',
         allFrames: true
       });
 
       chrome.tabs.insertCSS(tabId, {
-        file: 'static/ratfucking.css',
+        file: 'static/kneecap.css',
         runAt: 'document_start',
         allFrames: true
       });
