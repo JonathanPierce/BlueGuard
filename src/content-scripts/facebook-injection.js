@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
-const BLOCKLIST = require('../blocklists/facebook.json');
+const PAGES_BLOCKLIST = require('../blocklists/facebook-pages.js');
+const PAGES_BLOCKLIST_KEYED = _.keyBy(PAGES_BLOCKLIST, 'id');
 
 // returns a promise that resolves in between 0 and maxWait milliseconds
 function randomDelayPromise(maxWait = 20000) {
@@ -46,19 +47,29 @@ function getRequestParams(method = 'GET') {
   return window.require('getAsyncParams')(method);
 }
 
-function unlikeMaliciousPage() {
-  // Make API request to fan_status for the page with correct props
+function unlikeMaliciousPage(id) {
+  return randomDelayPromise().then(() => {
+    return window.require('AsyncRequest').post(
+      'https://www.facebook.com/ajax/pages/fan_status.php',
+      { fbpage_id: id, add: false }
+    );
+  });
 }
 
 function unlikeMaliciousPages() {
-  // first, check if more than six hours since last run
-  // return getAllLikedPages().then((likedPageIds) => {
-  // - compare to blocklist
-  // - fire off deferred requests to unblock
-  // - after all requests complete, mark script as ran (six hour delay)
-  // });
   return getAllLikedPages().then((likedPageIds) => {
     console.log('liked pages', likedPageIds);
+
+    const matchedLikedPages = _.filter(
+      likedPageIds,
+      (id) => PAGES_BLOCKLIST_KEYED[id]
+    );
+
+    console.log('matched liked pages', matchedLikedPages);
+
+    return Promise.all(
+      _.map(matchedLikedPages, (id) => unlikeMaliciousPage(id))
+    );
   });
 }
 
@@ -70,9 +81,30 @@ function isLoggedIn() {
   }
 }
 
+// need to wrap it to hook into push state events
+function setupPushStateHandler() {
+  const originalPush = window.history.pushState.bind(window.history);
+  const originalReplace = window.history.replaceState.bind(window.history);
+
+  window.history.pushState = function(...args) {
+    const result = originalPush(...args);
+    redirectOnBannedPage();
+    return result;
+  };
+
+  window.history.replaceState = function(...args) {
+    const result = originalReplace(...args);
+    redirectOnBannedPage();
+    return result;
+  };
+}
+
 function redirectOnBannedPage() {
-  // check if page is banned
-  // redirect to homepage if so
+  _.forEach(PAGES_BLOCKLIST, (blockedPage) => {
+    if (window.location.pathname === blockedPage.url) {
+      window.location.href = window.location.origin;
+    }
+  });
 }
 
 function sendMessageToParent(message) {
@@ -91,6 +123,7 @@ if (isLoggedIn()) {
   });
 
   // if on a banned page, redirect to the homepage
+  setupPushStateHandler();
   redirectOnBannedPage();
 } else {
   console.log('BlueGuard: NOT logged-in');

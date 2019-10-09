@@ -1,9 +1,0 @@
-[
-  {
-    "id": "example",
-    "type": "page",
-    "action": "unlike",
-    "url": "url",
-    "name": "human description of page"
-  }
-]
