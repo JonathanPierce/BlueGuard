@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 const PAGES_BLOCKLIST = require('../blocklists/facebook-pages.js');
 const PAGES_BLOCKLIST_KEYED = _.keyBy(PAGES_BLOCKLIST, 'id');
+const FOUR_HOURS = 1000 * 60 * 60 * 4;
 
 // returns a promise that resolves in between 0 and maxWait milliseconds
 function randomDelayPromise(maxWait = 20000) {
@@ -58,14 +59,10 @@ function unlikeMaliciousPage(id) {
 
 function unlikeMaliciousPages() {
   return getAllLikedPages().then((likedPageIds) => {
-    console.log('liked pages', likedPageIds);
-
     const matchedLikedPages = _.filter(
       likedPageIds,
       (id) => PAGES_BLOCKLIST_KEYED[id]
     );
-
-    console.log('matched liked pages', matchedLikedPages);
 
     return Promise.all(
       _.map(matchedLikedPages, (id) => unlikeMaliciousPage(id))
@@ -113,14 +110,32 @@ function sendMessageToParent(message) {
   }));
 }
 
+function handlePageMessage(event) {
+  const message = event.detail;
+
+  if (message.type === 'start') {
+    console.log('BlueGuard: starting injection!');
+
+    if (
+      !message.options.lastFacebookRun ||
+      (Date.now() - FOUR_HOURS) > message.options.lastFacebookRun
+    ) {
+      unlikeMaliciousPages().then(() => {
+        sendMessageToParent({ type: 'unlikeComplete' });
+      }).catch((ex) => {
+        console.error('BlueGuard Error', ex);
+      });
+    } else {
+      console.log('BlueGuard: already ran!')
+    }
+  }
+}
+
 if (isLoggedIn()) {
   console.log('BlueGuard: logged-in');
 
-  unlikeMaliciousPages().then(() => {
-    sendMessageToParent({ type: 'unlikeComplete' });
-  }).catch((ex) => {
-    console.error('BlueGuard Error', ex);
-  });
+  // start listening for events
+  document.addEventListener('blueGuardMessage', handlePageMessage);
 
   // if on a banned page, redirect to the homepage
   setupPushStateHandler();

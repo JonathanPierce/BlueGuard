@@ -7,8 +7,18 @@ if (!window.injected) { // prevent double-injection
     const message = event.detail;
 
     if (message.type === 'unlikeComplete') {
-      console.log('BlueGuard: Unlike complete!')
+      chrome.storage.sync.set({
+        lastFacebookRun: Date.now()
+      }, () => {
+        console.log('BlueGuard: Unlike complete!');
+      });
     }
+  }
+
+  function sendMessageToPage(message) {
+    document.dispatchEvent(new CustomEvent('blueGuardMessage', {
+      detail: message
+    }));
   }
 
   function injectScriptIntoPage() {
@@ -17,6 +27,18 @@ if (!window.injected) { // prevent double-injection
 
     document.addEventListener('blueGuardMessage', handlePageMessage);
     document.documentElement.appendChild(script);
+
+    script.addEventListener('load', () => {
+      chrome.storage.sync.get({
+        lastFacebookRun: null,
+        followMainstream: false
+      }, (options) => {
+        sendMessageToPage({
+          type: 'start',
+          options
+        });
+      });
+    });
   }
 
   window.addEventListener('load', () => {

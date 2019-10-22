@@ -88,7 +88,7 @@ In order of implementation priority:
   - Fun fact: Facebook has a rate limit for liking content, but not un-liking it. Good for me!
 - Once Facebook is complete, I'll work on the options page
 - Will likely hit the Chrome store once Facebook and the options page are live
-- Then, work on YouTube, other social networks, maintaing blocklists, etc...
+- Then, work on YouTube, other social networks, maintaining blocklists, etc...
 
 # How to Build and Run
 
