@@ -706,5 +706,305 @@ module.exports = [
   {
     id: 44473416732,
     url: '/WJOpinion/'
+  },
+  {
+    id: 32125256650,
+    url: '/The.American.Conservative/'
+  },
+  {
+    id: 160094917658156,
+    url: '/conservativetradition/'
+  },
+  {
+    id: 87662788680,
+    url: '/conservatism/'
+  },
+  {
+    id: 1591828521031839,
+    url: '/conservativeupdate/'
+  },
+  {
+    id: 1049371051750142,
+    url: '/conservativestoday/'
+  },
+  {
+    id: 106602246350849,
+    url: '/BoldlyConservative/'
+  },
+  {
+    id: 435595976630481,
+    url: '/conservativestandard/'
+  },
+  {
+    id: 182342022532247,
+    url: '/AConservativeNation/'
+  },
+  {
+    id: 148345978571352,
+    url: '/conservativebyte/'
+  },
+  {
+    id: 355383001558536,
+    url: '/Theconservativelatina/'
+  },
+  {
+    id: 1597887990447257,
+    url: '/conservativealliancepage/'
+  },
+  {
+    id: 125246107556084,
+    url: '/ConservativeBase/'
+  },
+  {
+    id: 1737250523196328,
+    url: '/IWNRHCAMP/'
+  },
+  {
+    id: 940295849386709,
+    url: '/Conservative-World-Daily-940295849386709/'
+  },
+  {
+    id: 621115497957864,
+    url: '/ConservativeMomma/'
+  },
+  {
+    id: 204589740093143,
+    url: '/ProudConservativeWomen/'
+  },
+  {
+    id: 161006561148374,
+    url: '/KaitsUnsafeSpace/'
+  },
+  {
+    id: 116933681791119,
+    url: '/theconservative.news/'
+  },
+  {
+    id: 296435110435279,
+    url: '/ConservativeWomen/'
+  },
+  {
+    id: 247174242966,
+    url: '/THEGREATAWAKENING1/'
+  },
+  {
+    id: 2035426793413860,
+    url: '/QanonNews/'
+  },
+  {
+    id: 227972721318429,
+    url: '/QNationUS/'
+  },
+  {
+    id: 245852972704322,
+    url: '/QNationUSA/'
+  },
+  {
+    id: 414673285937454,
+    url: '/QBrigade1/'
+  },
+  {
+    id: 2005536009703592,
+    url: '/realTrumpQAnon/'
+  },
+  {
+    id: 215819205941103,
+    url: '/Qanonblog/'
+  },
+  {
+    id: 505653766599222,
+    url: '/AmericaFirstGorka/'
+  },
+  {
+    id: 107836982888901,
+    url: '/AmericaFirstGrassroots/'
+  },
+  {
+    id: 36808309898,
+    url: '/AnswersInGenesis/'
+  },
+  {
+    id: 438746279557181,
+    url: '/onenewsnowcom/'
+  },
+  {
+    id: 50783931363,
+    url: '/actforamerica/'
+  },
+  {
+    id: 149658925128808,
+    url: '/FoxNewsFlash/'
+  },
+  {
+    id: 647684042013224,
+    url: '/museumoftheBible/'
+  },
+  {
+    id: 131201286936061,
+    url: '/FranklinGraham/'
+  },
+  {
+    id: 315496455229328,
+    url: '/SenatorTedCruz/'
+  },
+  {
+    id: 6934857868,
+    url: '/mikehuckabee/'
+  },
+  {
+    id: 45393753416,
+    url: '/AllianceDefendingFreedom/'
+  },
+  {
+    id: 69813760388,
+    url: '/SeanHannity/'
+  },
+  {
+    id: 70630972354,
+    url: '/JesusDaily/'
+  },
+  {
+    id: 52440476277,
+    url: '/ILoveJesusAndImProudToSayIt/'
+  },
+  {
+    id: 1159026077461703,
+    url: '/TrumpPenceMAGA/'
+  },
+  {
+    id: 735823829882097,
+    url: '/RealTrumpNation/'
+  },
+  {
+    id: 427669654102647,
+    url: '/presidentdonaldtrump16/'
+  },
+  {
+    id: 1487587521541634,
+    url: '/PresidentDonaldTrumpFanClub/'
+  },
+  {
+    id: 1670462209841292,
+    url: '/OurMrPresident/'
+  },
+  {
+    id: 166742697054389,
+    url: '/TrumpRulesUSA/'
+  },
+  {
+    id: 1546672678963050,
+    url: '/DMLdaily/'
+  },
+  {
+    id: 786883751417314,
+    url: '/Trump/'
+  },
+  {
+    id: 1038366826182593,
+    url: '/isupportdonaldtrump/'
+  },
+  {
+    id: 941574219215377,
+    url: '/TRUMP2020NY/'
+  },
+  {
+    id: 839584852848620,
+    url: '/TheTrumpFanPage/'
+  },
+  {
+    id: 529594453913030,
+    url: '/LaraLTrump/'
+  },
+  {
+    id: 1545826148838592,
+    url: '/GodEmperorTrump2020/'
+  },
+  {
+    id: 754194171347194,
+    url: '/Dailytrumpmemes/'
+  },
+  {
+    id: 183263182059989,
+    url: '/Women-for-TRUMP-183263182059989/'
+  },
+  {
+    id: 1582274108661752,
+    url: '/DankTrumpMeme/'
+  },
+  {
+    id: 839449246154249,
+    url: '/presidentDJT/'
+  },
+  {
+    id: 1789533624602081,
+    url: '/PresidentDonaldJTrump2017/'
+  },
+  {
+    id: 6726182861,
+    url: '/mikepence/'
+  },
+  {
+    id: 1827861310819552,
+    url: '/VicePresidentPence/'
+  },
+  {
+    id: 263486007807,
+    url: '/MelaniaTrump/'
+  },
+  {
+    id: 201616790307589,
+    url: '/FLOTUS/'
+  },
+  {
+    id: 1058854884124708,
+    url: '/FLOTUSINITIATIVES/'
+  },
+  {
+    id: 1108196675935969,
+    url: '/reportingfrommybasket/'
+  },
+  {
+    id: 332360827110991,
+    url: '/DeplorableMedia/'
+  },
+  {
+    id: 310324155992778,
+    url: '/Deplorables1/'
+  },
+  {
+    id: 231197154116612,
+    url: '/thedeplorablechoir/'
+  },
+  {
+    id: 605815676480490,
+    url: '/ConspiracyTime/'
+  },
+  {
+    id: 138267619575029,
+    url: '/ConspiracySyndrome/'
+  },
+  {
+    id: 1562018977159081,
+    url: '/ConspiracyNationOfficial/'
+  },
+  {
+    id: 413755415822746,
+    url: '/TheRealDonktum/'
+  },
+  {
+    id: 34521916336,
+    url: '/brentbozell/'
+  },
+  {
+    id: 475549362567960,
+    url: '/ConservativeReview/'
+  },
+  {
+    id: 1795664644011390,
+    url: '/TheTrumpNetwork/'
+  },
+  {
+    id: 197823647242468,
+    url: '/TRUMPPOWER1/'
   }
 ];
