@@ -1006,5 +1006,69 @@ module.exports = [
   {
     id: 197823647242468,
     url: '/TRUMPPOWER1/'
+  },
+  {
+    id: 296229200760974,
+    url: '/dontmesswithamerica1776/'
+  },
+  {
+    id: 872535699511452,
+    url: '/angrypatriotmovement/'
+  },
+  {
+    id: 633168823488043,
+    url: '/angrymovement/'
+  },
+  {
+    id: 430069523754924,
+    url: '/Patriotladies/'
+  },
+  {
+    id: 109521013225,
+    url: '/NikkiHaley/'
+  },
+  {
+    id: 605636446121211,
+    url: '/the.conservative2/'
+  },
+  {
+    id: 425771317501061,
+    url: '/michaelknowlesshow/'
+  },
+  {
+    id: 993293174040189,
+    url: '/proamericanews/'
+  },
+  {
+    id: 1766408583626141,
+    url: '/TheUnitedPatriots/'
+  },
+  {
+    id: 1746057572287188,
+    url: '/unitedstatesherald/'
+  },
+  {
+    id: 213155939065622,
+    url: '/UnitedAmericanPatriots/'
+  },
+  {
+    id: 1611130805846353,
+    url: '/AmConservative.US/'
+  },
+  {
+    id: 1438297583057813,
+    url: '/therightnews2/'
+  },
+  {
+    id: 254327438267700,
+    url: '/therealpatriotblog/'
+  },
+  {
+    id: 240840962744536,
+    url: '/BOYCOTTAETV1/'
+  },
+  {
+    id: 1653554188262272,
+    url: '/bikersfortrump/'
   }
 ];
