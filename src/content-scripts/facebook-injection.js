@@ -11,6 +11,38 @@ function randomDelayPromise(maxWait = 20000) {
   });
 }
 
+function getRequestParams(method = 'GET') {
+  return window.require('getAsyncParams')(method);
+}
+
+function getAllGroups() {
+  const baseParams = getRequestParams('POST');
+  const params = _.assign(baseParams, {
+    fb_api_caller_class: 'RelayModern',
+    fb_api_req_friendly_name: 'GroupsLandingYourGroupsQuery',
+    variables: JSON.stringify({count :5000, isAdminGroups:false}),
+    doc_id: 1309056129218188 // hardcoded?
+  });
+
+  const urlEncoded =  _.map(params, (value, key) => (
+    encodeURIComponent(key) + '=' + encodeURIComponent(value)
+  )).join('&');
+
+  return fetch('https://www.facebook.com/api/graphql/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: urlEncoded
+  }).then((response) => (
+    response.json()
+  )).then((json) => {
+    return _.map(_.get(json, 'data.viewer.account_user.groups.edges'), (edge) => {
+      return _.get(edge, 'node.id');
+    });
+  });
+}
+
 function parsePagesFromHTMLPagelet(html) {
   const pageDocument = new DOMParser().parseFromString(html, 'text/html');
   const pagesSection = pageDocument.querySelector('#all_liked_pages');
@@ -44,10 +76,6 @@ function getAllLikedPages() {
   });
 }
 
-function getRequestParams(method = 'GET') {
-  return window.require('getAsyncParams')(method);
-}
-
 function unlikeMaliciousPage(id) {
   return randomDelayPromise().then(() => {
     return window.require('AsyncRequest').post(
@@ -68,6 +96,10 @@ function unlikeMaliciousPages() {
       _.map(matchedLikedPages, (id) => unlikeMaliciousPage(id))
     );
   });
+}
+
+function unlikeMaliciousGroups() {
+  return getAllGroups().then((ids) => console.log('GROUP IDS', ids));
 }
 
 function isLoggedIn() {
@@ -120,7 +152,10 @@ function handlePageMessage(event) {
       !message.options.lastFacebookRun ||
       (Date.now() - FOUR_HOURS) > message.options.lastFacebookRun
     ) {
-      unlikeMaliciousPages().then(() => {
+      Promise.all([
+        unlikeMaliciousPages(),
+        unlikeMaliciousGroups()
+      ]).then(() => {
         sendMessageToParent({ type: 'unlikeComplete' });
       }).catch((ex) => {
         console.error('BlueGuard Error', ex);

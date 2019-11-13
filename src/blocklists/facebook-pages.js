@@ -1070,5 +1070,141 @@ module.exports = [
   {
     id: 1653554188262272,
     url: '/bikersfortrump/'
+  },
+  {
+    id: 724347924262386,
+    url: '/Freedom-and-Firearms-724347924262386/'
+  },
+  {
+    id: 124538510989702,
+    url: '/2ndAmendmentSupporters/'
+  },
+  {
+    id: 560140464159364,
+    url: '/sft2tacticalsupply/'
+  },
+  {
+    id: 215558845416,
+    url: '/2ndAmendmentUSA/'
+  },
+  {
+    id: 202286639832171,
+    url: '/drjeffress/'
+  },
+  {
+    id: 662024890479461,
+    url: '/2nd-Amendment-Supporters-662024890479461/'
+  },
+  {
+    id: 452832981470891,
+    url: '/The-2nd-Amendment-452832981470891/'
+  },
+  {
+    id: 432573843480538,
+    url: '/I-Support-The-2nd-Amendment-432573843480538/'
+  },
+  {
+    id: 124016042296,
+    url: '/tednugent/'
+  },
+  {
+    id: 254121084754746,
+    url: '/JoeySalads/'
+  },
+  {
+    id: 1478174648924454,
+    url: '/Joeysvideos/'
+  },
+  {
+    id: 369977506417957,
+    url: '/2ndamendmenthotties/'
+  },
+  {
+    id: 492086757513396,
+    url: '/SupportersOfGunRights/'
+  },
+  {
+    id: 202600839762879,
+    url: '/focusonlife/'
+  },
+  {
+    id: 145170355529600,
+    url: '/ProLifeAlliance/'
+  },
+  {
+    id: 62050087491,
+    url: '/ProLifeWI/'
+  },
+  {
+    id: 111291045552937,
+    url: '/ProLifePage/'
+  },
+  {
+    id: 165284543530775,
+    url: '/We-can-end-abortion-165284543530775/'
+  },
+  {
+    id: 427436237618707,
+    url: '/UnitedDeplorablesOfAmerica/'
+  },
+  {
+    id: 1784540725101962,
+    url: '/DeplorablesUnitedforTrump/'
+  },
+  {
+    id: 1681873748704195,
+    url: '/deplorableinabasket/'
+  },
+  {
+    id: 345095985839877,
+    url: '/ProudDeplorablesUSA/'
+  },
+  {
+    id: 327934444730455,
+    url: '/Deplorables-Loud-And-Proud-327934444730455/'
+  },
+  {
+    id: 171159873348150,
+    url: '/TheDeplorableNews/'
+  },
+  {
+    id: 283992219039340,
+    url: '/deplorableyou/'
+  },
+  {
+    id: 453531464698162,
+    url: '/steadfastherald/'
+  },
+  {
+    id: 425685777893996,
+    url: '/DemocratsUnhinged/'
+  },
+  {
+    id: 2153231054966804,
+    url: '/TakingBackAmerica3/'
+  },
+  {
+    id: 316414711900570,
+    url: '/truthaus/'
+  },
+  {
+    id: 109113042509908,
+    url: '/stopislamizationofamerica/'
+  },
+  {
+    id: 150974048350848,
+    url: '/SIONations/'
+  },
+  {
+    id: 102970113093477,
+    url: '/ChurchMilitantcom/'
+  },
+  {
+    id: 22067606728,
+    url: '/AllenBWest/'
+  },
+  {
+    id: 1173519932727807,
+    url: '/RealClearInvestigations/'
   }
 ];
