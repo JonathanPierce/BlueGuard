@@ -2,6 +2,8 @@ import _ from 'lodash';
 
 const PAGES_BLOCKLIST = require('../blocklists/facebook-pages.js');
 const PAGES_BLOCKLIST_KEYED = _.keyBy(PAGES_BLOCKLIST, 'id');
+const GROUPS_BLOCKLIST = require('../blocklists/facebook-groups.js');
+const GROUPS_BLOCKLIST_KEYED = _.keyBy(GROUPS_BLOCKLIST, 'id');
 const FOUR_HOURS = 1000 * 60 * 60 * 4;
 
 // returns a promise that resolves in between 0 and maxWait milliseconds
@@ -85,6 +87,15 @@ function unlikeMaliciousPage(id) {
   });
 }
 
+function unlikeMaliciousGroup(id) {
+  return randomDelayPromise().then(() => {
+    return window.require('AsyncRequest').post(
+      `https://www.facebook.com/ajax/groups/membership/leave?group_id=${id}&ref=group_browse`,
+      { confirmed: 1 }
+    );
+  });
+}
+
 function unlikeMaliciousPages() {
   return getAllLikedPages().then((likedPageIds) => {
     const matchedLikedPages = _.filter(
@@ -99,7 +110,16 @@ function unlikeMaliciousPages() {
 }
 
 function unlikeMaliciousGroups() {
-  return getAllGroups().then((ids) => console.log('GROUP IDS', ids));
+  return getAllGroups().then((matchedGroupIds) => {
+    const matchedLikedGroups = _.filter(
+      matchedGroupIds,
+      (id) => GROUPS_BLOCKLIST_KEYED[id]
+    );
+
+    return Promise.all(
+      _.map(matchedLikedGroups, (id) => unlikeMaliciousGroup(id))
+    );
+  });
 }
 
 function isLoggedIn() {
@@ -129,7 +149,7 @@ function setupPushStateHandler() {
 }
 
 function redirectOnBannedPage() {
-  _.forEach(PAGES_BLOCKLIST, (blockedPage) => {
+  _.forEach(_.concat(PAGES_BLOCKLIST, GROUPS_BLOCKLIST), (blockedPage) => {
     if (window.location.pathname === blockedPage.url) {
       window.location.href = window.location.origin;
     }
