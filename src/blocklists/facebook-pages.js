@@ -1206,5 +1206,53 @@ module.exports = [
   {
     id: 1173519932727807,
     url: '/RealClearInvestigations/'
+  },
+  {
+    id: 436894849812966,
+    url: '/daverubin/'
+  },
+  {
+    id: 90209763480,
+    url: '/Federalist.Society/'
+  },
+  {
+    id: 1752689034960996,
+    url: '/TheBabylonBee/'
+  },
+  {
+    id: 6240652407,
+    url: '/youngamericasfoundation/'
+  },
+  {
+    id: 216709768355686,
+    url: '/DSouzaDinesh/'
+  },
+  {
+    id: 397092596994464,
+    url: '/TheREALCloydRivers/'
+  },
+  {
+    id: 1620160728232866,
+    url: '/conservativebuzz/'
+  },
+  {
+    id: 107546629279454,
+    url: '/trunews/'
+  },
+  {
+    id: 114724071935335,
+    url: '/blackwellohio/'
+  },
+  {
+    id: 113971822028294,
+    url: '/iheartmindypage/'
+  },
+  {
+    id: 967533780071360,
+    url: '/RedWhiteandFYou/'
+  },
+  {
+    id: 302059116860496,
+    url: '/LGBTrump2020/'
   }
 ];
